@@ -2,6 +2,7 @@ package com.example.tictactoe;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -26,7 +27,9 @@ public class MainActivity extends AppCompatActivity {
         ImageView img = (ImageView) view;
         int tappedImage = Integer.parseInt(img.getTag().toString());
         if(!gameActive){
-            gameReset(view);
+            finish();
+            startActivity(getIntent());
+            //gameReset(view);
         }
         if(gameState[tappedImage] == 2) {
             gameState[tappedImage] = activePlayer;
@@ -63,14 +66,19 @@ public class MainActivity extends AppCompatActivity {
                 status.setText(winnerStr);
 
             }
-
-
-
+        }
+        //check draw match
+        if(gameActive==true && gameState[0]!=2  && gameState[1]!=2 && gameState[2]!=2 && gameState[3]!=2
+                && gameState[4]!=2 && gameState[5]!=2 && gameState[6]!=2 && gameState[7]!=2 && gameState[8]!=2 )
+        {
+            TextView status = findViewById(R.id.status);
+            status.setText("Draw");
+            gameActive=false;
         }
 
     }
 
-    public void gameReset(View view) {
+    /*public void gameReset(View view) {
         gameActive = true;
         activePlayer = 0;
         for(int i=0; i<gameState.length; i++){
@@ -89,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         TextView status = findViewById(R.id.status);
         status.setText("X's Turn - Tap to play");
 
-    }
+    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
