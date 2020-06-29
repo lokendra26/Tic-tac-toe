@@ -13,6 +13,7 @@
         android:layout_marginTop="23dp"
         android:text="@string/heading"
         android:textSize="36sp"
+        android:layout_weight="1"
         android:textStyle="bold"
         app:fontFamily="cursive"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -21,8 +22,9 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="8"
         android:contentDescription="@string/grid"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -150,6 +152,7 @@
         android:layout_marginBottom="15sp"
         android:text="@string/status"
         android:textSize="18sp"
+        android:layout_weight="1"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
